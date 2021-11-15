@@ -1,0 +1,4 @@
+@keyframes aparece_bloco{
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
