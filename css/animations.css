@@ -2,3 +2,7 @@
     from { opacity: 0; }
     to { opacity: 1; }
 }
+@keyframes esconde_bloco{
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
