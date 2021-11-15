@@ -74,13 +74,13 @@ img{
     height: 100%;
     width: 100%;
     background-color: rgba(0,0,0,0.6530987394957983);
-    display: none;
+    /* display: none; */
     animation: aparece_bloco .5s;
 }
-#prancheta_login, #prancheta_cadastro{
+#background_login{
     position: absolute;
     width: 300px;
-    height: auto;
+    height: 350px;
     padding-bottom: 50px;
     left: 50%;
     margin-left: -150px;
@@ -89,6 +89,7 @@ img{
     border-radius: 25px;
     padding-top: 5%;
     text-align: center;
+    transition: height 5s;
 }
 #prancheta_cadastro{
     display: none;
