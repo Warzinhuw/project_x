@@ -6,11 +6,3 @@
     from { opacity: 1; }
     to { opacity: 0; }
 }
-@keyframes muda_altura_1 {
-    from { height: 350px }
-    to { height: 440px; }
-}
-@keyframes muda_altura_2 {
-    from { height: 440px }
-    to { height: 350px; }
-}

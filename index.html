@@ -8,18 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/icones/engrena.png" title="engrenagem">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
-    <script type="text/javascript" src="js/index.js"></script>
+    <!-- Slick -->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
+    <script src="js/fontawesome.js" crossorigin="anonymous"></script>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    
+    <script src="slick/slick.min.js"></script>
+    <script src="js/funcoes.js"></script>
+
 </head>
 <body>
     <header>
         <img class="icone" src="img/icones/engrena.png" title="engrenagem">
-        Mexpress
+        <a href="#carrosel_fundo">Mexpress</a>
         <nav style="float: right">
-            <a href="#">Nossa história</a> | 
-            <a href="#">Como funciona</a> | 
-            <a href="#" onclick="prancheta_login()">Login</a>
+            <a href="#historia">Nossa história</a> | 
+            <a href="#funcionamento">Como funciona</a> | 
+            <a href="#" id="click_login">Login</a>
         </nav>
     </header>
     
@@ -27,23 +38,23 @@
         <div id="background_login">
             <form id="prancheta_login" method="post" action="#">
 
-                <input type="text" placeholder="Email" required> <br><br>
+                <input type="text" name="email" placeholder="Email" required> <br><br>
 
-                <input type="password" placeholder="Senha" required> <br><br>
+                <input type="password" name="senha" placeholder="Senha" required> <br><br>
 
                 <button>Logar</button> <br><br>
 
                 <a class="button" onclick="cadastro_user(1)" href="#">Ainda não é cadastrado?</a>
             </form>
-            <form id="prancheta_cadastro">
+            <form id="prancheta_cadastro" method="post" action="#">
 
-                <input type="text" placeholder="Nome" required> <br><br>
+                <input type="text" name="nome" placeholder="Nome" required> <br><br>
 
-                <input type="text" placeholder="Email" required> <br><br>
+                <input type="text" name="email" placeholder="Email" required> <br><br>
 
-                <input type="phone" placeholder="Telefone" required> <br><br>
+                <input type="tel" name="telefone" placeholder="+55 11 4002-8922" required pattern="+[0-9]{2} ([0-9]{2}) [0-9]{4}"> <br><br>
 
-                <input type="password" placeholder="Senha" required> <br><br>
+                <input type="password" name="senha" placeholder="Senha" required> <br><br>
 
                 <button>Cadastrar</button> <br><br>
 
@@ -53,13 +64,29 @@
     </div>
 
     <div id="conteudo_pag">
-        <h1>Bem vindo a mexpress</h1> <hr>
-
+        <h1>Bem vindo a mexpress</h1> <hr style="width: 60%; float: left"> <br><br>
+ 
         <p>Seu veículo pronto em tempo recorde.</p>
     </div>
     
-    <div id="filtro_fundo"></div>
+    <div id="carrosel_fundo">
+        <div><img class="carrosel" src="img/banners/oficina1.jpg"></div>
+        <div><img class="carrosel" src="img/banners/oficina2.jpg"></div>
+        <div><img class="carrosel" src="img/banners/oficina3.jpg"></div>
+        <div><img class="carrosel" src="img/banners/oficina4.jpg"></div>
+    </div>
 
+    <div class="quadro_index">
+        <h1 id="historia">Nossa história</h1>
+        <hr>
+
+    </div>
+
+    <div class="quadro_index">
+        <h1 id="funcionamento">Como funciona</h1>
+        <hr>
+
+    </div>
     <footer>
         <nav style="float: right; padding-right: 15px;">
             Versão 1.0

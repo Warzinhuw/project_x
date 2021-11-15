@@ -1,5 +1,18 @@
 var timeout_transicao;
 
+$(document).ready(function(){
+
+    $('#carrosel_fundo').slick({
+        autoplay: true,
+        speed: 2000,
+        fade: true,
+        autoplaySpeed: 2000,
+    });
+
+    $('#click_login').click(() => {
+        $("#form_login").fadeToggle();
+    });
+});
 function prancheta_login(){
     
     alvo = document.getElementById("form_login");
@@ -25,15 +38,15 @@ function cadastro_user(alvo){
     if(alvo){
         document.getElementById("prancheta_cadastro").style.display = "Block";
         document.getElementById("prancheta_login").style.display = "None";
-        document.getElementById("background_login").style.animation = "muda_altura_1 .2s";
+        // document.getElementById("background_login").style.animation = "muda_altura_1 .2s";
 
-        timeout_transicao = setTimeout(() => { document.getElementById("background_login").style.height = "440px"; }, 200);
+        // timeout_transicao = setTimeout(() => { document.getElementById("background_login").style.height = "400px"; }, 200);
     }else{
         document.getElementById("prancheta_login").style.display = "Block";
         document.getElementById("prancheta_cadastro").style.display = "None";
 
-        document.getElementById("background_login").style.animation = "muda_altura_2 .2s";
+        // document.getElementById("background_login").style.animation = "muda_altura_2 .2s";
 
-        timeout_transicao = setTimeout(() => { document.getElementById("background_login").style.height = "350px"; }, 200);
+        // timeout_transicao = setTimeout(() => { document.getElementById("background_login").style.height = "300px"; }, 200);
     }
 }
