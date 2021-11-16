@@ -172,10 +172,10 @@ hr:hover{
     overflow: hidden;
     font-size: 33px;
     background-size: cover;
-    transition: width .2s;
+    transition: transform .1s;
 }
 .quadros_user:hover{
-    width: 28%;
+    transform: scale(1.03);
 }
 .detalhe_quadro{
     float: left;

@@ -16,25 +16,49 @@
     <header>
         <img class="icone" src="img/icones/engrena.png" title="engrenagem">
         
-        <!-- <a href="#"> Nome usuário </a> -->
+        Josival | Agora são <em id="relogio"></em> de <em><span id="data_dia"></span></em>
 
         <nav style="float: right">
             <a href="#">Deslogar</a>
         </nav>
     </header>
 
-    <div class="quadros_user" id="imagem_veiculos">
-        <span class="detalhe_quadro">Seus veículos</span>
-    </div>
+    <a href="#">
+        <div class="quadros_user" id="imagem_veiculos">
+            <span class="detalhe_quadro">Seus veículos</span>
+        </div>
+    </a>
 
-    <div class="quadros_user" id="imagem_servicos">
-        <span class="detalhe_quadro">Serviços requisitados</span>
+    <a href="#">
+        <div class="quadros_user" id="imagem_servicos">
+            <span class="detalhe_quadro">Serviços requisitados</span>
+        </div>
+    </a>
 
-    </div>
-
-    <div class="quadros_user" id="imagem_configura">
-        <span class="detalhe_quadro">Configurações</span>
-
-    </div>
+    <a href="#">
+        <div class="quadros_user" id="imagem_configura">
+            <span class="detalhe_quadro">Configurações</span>
+        </div>
+    </a>
 </body>
+<script>
+
+    (function(){
+        
+        let data = new Date();
+        data_final = data.toLocaleDateString("pt-br", {timeZone: 'America/Sao_Paulo'});
+
+        document.getElementById("data_dia").innerHTML = data_final;
+        atualizaRelogio_user();
+
+        function atualizaRelogio_user(){
+            momentoAtual = new Date();
+
+            horaImprimivel = momentoAtual.toLocaleTimeString('pt-BR', {timeZone: 'America/Sao_Paulo'});
+            document.getElementById("relogio").innerHTML = horaImprimivel;
+            setTimeout(() => {atualizaRelogio_user(); }, 1000);
+        }
+    })();
+
+</script>
 </html>
