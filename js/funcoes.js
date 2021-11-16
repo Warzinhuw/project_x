@@ -1,16 +1,12 @@
 var timeout_transicao;
 
 $(document).ready(function(){
-
-    $('#carrosel_fundo').slick({
-        autoplay: true,
-        speed: 2000,
-        fade: true,
-        autoplaySpeed: 2000,
+    $("#click_login").click(() => {
+        $("#form_login").fadeToggle();
     });
 
-    $('#click_login').click(() => {
-        $("#form_login").fadeToggle();
+    $("#imagem_configura").click(() => {
+        $("#perfil_usuario").fadeToggle();
     });
 });
 function prancheta_login(){
@@ -49,4 +45,19 @@ function cadastro_user(alvo){
 
         // timeout_transicao = setTimeout(() => { document.getElementById("background_login").style.height = "300px"; }, 200);
     }
+}
+
+function troca_tela(caso){
+    const urls = ["usuario.html", "veiculos.html", "servicos.html",];
+    
+    document.getElementById("transitador").style.display = "None";
+    document.getElementById("transitador").style.display = "transita_telas .5s !important";
+    document.getElementById("transitador").style.display = "Block";
+
+    setTimeout(() => {
+        document.getElementById("transitador").style.animation = "";
+        document.getElementById("transitador").style.width = "100%";
+        
+        document.location.href = urls[caso];
+    }, 500);
 }
