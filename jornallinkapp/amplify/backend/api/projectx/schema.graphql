@@ -1,0 +1,8 @@
+type Usuario @model @auth {
+  id: ID!
+  nome: String!
+  email: String!
+  endereco: String
+  nascimento: String!
+  telefone: String!
+}
