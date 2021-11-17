@@ -1,0 +1,14 @@
+{
+  "resourceName": "jornallinkdb",
+  "tableName": "usuario",
+  "partitionKey": {
+    "fieldName": "email",
+    "fieldType": "string"
+  },
+  "sortKey": {
+    "fieldName": "nome",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}
