@@ -17,6 +17,7 @@ header{
     font-size: 30px;
     padding: 15px;
     z-index: 3;
+    animation: pisca_barra 2s;
 }
 #conteudo_pag{
     padding-top: 10%;
@@ -160,6 +161,9 @@ hr{
 hr:hover{
     width: 30%;
 }
+#quadros_opcoes{
+    padding-top: 6%;
+}
 .quadros_user{
     box-shadow: 0px 0px 15px black;
     border-radius: 25px;
@@ -167,7 +171,6 @@ hr:hover{
     height: 60%;
     float: left;
     margin: 2%;
-    margin-top: 10%;
     margin-left: 5%;
     overflow: hidden;
     font-size: 33px;
@@ -190,16 +193,23 @@ hr:hover{
     clip-path: polygon(0% 0%, 0% 0, 100% 0%, 100% 50%, 0 100%, 0);
 }
 #imagem_veiculos{
-    background-image: url("../img/quadros/veiculos.png");
+    background-image: url("../img/quadros/veiculos.jpg");
 }
 #imagem_servicos{
-    background-image: url("../img/quadros/servicos.png");
+    background-image: url("../img/quadros/servicos.jpg");
 }
 #imagem_configura{
-    background-image: url("../img/quadros/configura.png");
+    background-image: url("../img/quadros/configura.jpg");
+}
+#imagem_clientes{
+    background-image: url("../img/quadros/clientes.jpg");
+}
+#imagem_estoque{
+    background-image: url("../img/quadros/estoque.jpeg");
 }
 #perfil_usuario{
     position: fixed;
+    top: 0px;
     width: 100%;
     height: 100%;
     z-index: 1;
@@ -241,19 +251,23 @@ hr:hover{
 }
 .bk_finalizado{
     background-size: cover;
-    background-image: url('../img/quadros/veiculos.png');
+    background-image: url('../img/quadros/veiculos.jpg');
 }
 .bk_andamento{
     background-size: cover;
     background-image: url('../img/banners/oficina2.jpg');
 }
 .bk_interrompido{
-    background-size: auto;
-    background-image: url('../img/texturas/Naves.png');
+    background-size: cover;
+    background-image: url('../img/quadros/interrompido.jpg');
 }
 .bk_pagamento{
-    background-size: auto;
-    background-image: url('../img/texturas/Update.png');
+    background-size: cover;
+    background-image: url('../img/quadros/aguardando.jpg');
+}
+.bk_cancelado{
+    background-size: cover;
+    background-image: url('../img/quadros/cancelado.jpg');
 }
 .status_sv{
     float: left;
@@ -268,20 +282,70 @@ hr:hover{
     clip-path:         polygon(0% 0%, 100% 0, 80% 0%, 100% 100%, 0 100%, 0 0);
 }
 .sv_finalizado{
-    background-color: rgba(53, 238, 53, 0.8);
+    background-color: rgba(53, 238, 53, .6);
 }
 .sv_andamento{
-    background-color: rgba(255, 255, 0, .8);
+    background-color: rgba(255, 255, 0, .6);
 }
 .sv_interrompido{
-    background-color: rgba(255, 0, 0, .8);
+    background-color: rgba(255, 0, 0, .6);
 }
 .sv_pagamento{
-    background-color: rgba(255, 145, 0, .8);
+    background-color: rgba(255, 145, 0, .6);
+}
+.sv_cancelado{
+    background-color: rgba(0, 0, 0, .6);
 }
 .infos_servicos{
     z-index: 2;
     padding-left: 30%;
     width: 100%;
     height: 50%;
+}
+#editar_serviço{
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    padding-top: 10%;
+}
+#grupo_inputs{
+    width: 40%;
+}
+#grupo_selects{
+    position: absolute;
+    width: 38.3%;
+    right: 5%;
+    top: 24.3%;
+}
+.input_edit{
+    width: 100%;
+    margin-top: 15px;
+}
+select{
+    width: 100%;
+    font-size: 25px !important;
+}
+#botao_cancelar{
+    background-color: rgb(209, 0, 0);
+    padding: 10px;
+    right: 1%;
+    font-size: 20px;
+    position: absolute;
+    margin-top: 7%;
+    transition: background-color .2s, border .2s, box-shadow .2s;
+    border-radius: 10px;
+    border: solid 2px rgb(177, 0, 0);
+}
+#botao_cancelar:hover{
+    color: white !important;
+    background-color: rgb(160, 0, 0);
+    border: solid 2px rgb(112, 0, 0);
+    box-shadow: 1px 1px 3px black;
+}
+#button_att{
+    margin-top: 15%;
+    width: 100%;
+}
+#config_perfil{
+    display: none;
 }

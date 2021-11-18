@@ -7,8 +7,15 @@ $(document).ready(function(){
 
     $("#imagem_configura").click(() => {
         $("#perfil_usuario").fadeToggle();
+        $("#config_perfil").fadeIn();
+    });
+
+    $("#config_perfil").click(() => {
+        $("#perfil_usuario").fadeToggle();
+        $("#config_perfil").fadeOut();
     });
 });
+
 function prancheta_login(){
     
     alvo = document.getElementById("form_login");
@@ -48,7 +55,7 @@ function cadastro_user(alvo){
 }
 
 function troca_tela(caso){
-    const urls = ["usuario.html", "veiculos.html", "servicos.html",];
+    const urls = ["usuario.html", "veiculos.html", "servicos.html", "clientes.html", "estoque.html"];
     
     document.getElementById("transitador").style.display = "None";
     document.getElementById("transitador").style.display = "transita_telas .5s !important";

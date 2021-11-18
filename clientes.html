@@ -1,8 +1,9 @@
 <html lang="pt-br">
 <head>
-    <title>Perfil</title>
+    <title>Clientes</title>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/animations.css">
     <link rel="stylesheet" type="text/css" href="css/animations.css">
 
     <meta charset="utf-8">
@@ -23,47 +24,17 @@
         Josival | Agora são <em id="relogio"></em> de <em><span id="data_dia"></span></em>
 
         <nav style="float: right">
-            <a href="#" id="config_perfil">Parar de editar | </a>
+            <a href="#" onclick="troca_tela(0)">Voltar</a> | 
             <a href="index.html">Deslogar</a>
         </nav>
     </header>
 
     <div id="quadros_opcoes">
-        <a href="#" onclick="troca_tela(1)">
-            <div class="quadros_user" id="imagem_veiculos">
-                <span class="detalhe_quadro">Seus veículos</span> <!-- Veículos registrados -->
-            </div>
-        </a>
-
-        <a href="#" onclick="troca_tela(2)">
-            <div class="quadros_user" id="imagem_servicos">
-                <span class="detalhe_quadro">Serviços requisitados</span> <!-- Serviços -->
-            </div>
-        </a>
-
         <a href="#">
-            <div class="quadros_user" id="imagem_configura">
-                <span class="detalhe_quadro">Configurações</span>
+            <div class="quadros_user" id="imagem_veiculos">
+                <span class="detalhe_quadro">Josival</span> <!-- Veículos registrados -->
             </div>
         </a>
-
-        <a href="#" onclick="troca_tela(3)">
-            <div class="quadros_user" id="imagem_clientes">
-                <span class="detalhe_quadro">Clientes</span>
-            </div>
-        </a>
-
-        <a href="#" onclick="troca_tela(4)">
-            <div class="quadros_user" id="imagem_estoque">
-                <span class="detalhe_quadro">Estoque</span>
-            </div>
-        </a>
-
-        <!-- <a href="#" onclick="troca_tela(4)">
-            <div class="quadros_user" id="imagem_configura">
-                <span class="detalhe_quadro">Configurações</span>
-            </div>
-        </a> -->
     </div>
 
     <div id="perfil_usuario">

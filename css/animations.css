@@ -14,3 +14,8 @@
     from { display: block; left: 0px; width: 100%; }
     to { display: block; left: 0px; width: 0%; }
 }
+@keyframes pisca_barra {
+    0% { background-color: rgba(80, 80, 80, .8); }
+    50% { background-color: rgba(27, 145, 145, .8); }
+    100% { background-color: rgba(80, 80, 80, .8); }
+}
