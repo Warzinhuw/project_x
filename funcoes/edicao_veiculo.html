@@ -1,6 +1,6 @@
 <html lang="pt-br">
 <head>
-    <title>Editar Serviço</title>
+    <title>Novo veículo</title>
 
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/animations.css">
@@ -24,36 +24,32 @@
         Josival | Agora são <em id="relogio"></em> de <em><span id="data_dia"></span></em>
 
         <nav style="float: right">
-            <a href="../servicos.html">Voltar</a> | 
+            <a href="../veiculos.html">Voltar</a> | 
             <a href="../index.html">Deslogar</a>
         </nav>
     </header>
 
-    <a href="#" id="botao_cancelar">Cancelar Serviço</a>
+    <a href="#" id="botao_cancelar">Remover veículo</a> <!-- Aparecer somente quando estiver editando um veículo já cadastrado -->
 
     <div id="quadro_edicao_dados">
         <div id="grupo_inputs">
             <input type="text" class="input_edit" placeholder="Placa do veículo" required>
 
-            <input type="text" class="input_edit" placeholder="Serviço realizado" required>
+            <input type="text" class="input_edit" placeholder="Modelo" required>
 
-            <input type="text" class="input_edit" placeholder="Data de término" required>
-
-            <input type="text" class="input_edit" placeholder="Custo do serviço" required>
+            <input type="text" class="input_edit" placeholder="Fabricante" required>
         </div>
 
         <div id="grupo_selects">
-            <h1>Status do serviço</h1>
+            <h1>Proprietário</h1>
             <select>
-                <option value="concluido">Concluído</option>
-                <option value="andamento">Em andamento</option>
-                <option value="interrompido">Interromper</option>
-                <option value="aguardando">Aguardando pagamento</option>
+                <option value="id_josival">Josival</option>
+                <option value="id_gertudres">Gertudres</option>
             </select>
         </div>
 
-        <button id="button_att">Atualizar dados</button> <!-- Aparecer somente quando estiver editando um serviço já cadastrado -->
-        <button id="button_add">Incluir serviço</button> <!-- Aparecer somente quando estiver criando um serviço -->
+        <button id="button_att">Atualizar dados</button> <!-- Aparecer somente quando estiver editando um veículo já cadastrado -->
+        <button id="button_add">Adicionar veículo</button> <!-- Aparecer somente quando estiver criando um veículo -->
     </div>
 
     <!-- Div para transitar entre as páginas -->
