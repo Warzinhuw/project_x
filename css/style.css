@@ -260,6 +260,12 @@ hr:hover{
 .bk_iniciar{
     background-image: url('../img/quadros/iniciar_servico.png');
 }
+.bk_add_peca{
+    background-image: url('../img/quadros/add_tool.jpg');
+}
+.bk_tools{
+    background-image: url('../img/quadros/tools.jpg');
+}
 .bk_finalizado{
     background-image: url('../img/quadros/veiculos.jpg');
 }
@@ -289,7 +295,7 @@ hr:hover{
 }
 .sv_iniciar{
     width: 34%;
-    background-color: rgba(32, 76, 219, 0.6);
+    background-color: rgba(32, 76, 219, .6);
 }
 .sv_finalizado{
     background-color: rgba(53, 238, 53, .6);
@@ -309,6 +315,9 @@ hr:hover{
 }
 .sv_cancelado:hover{
     color: white !important;
+}
+.sv_peca{
+    background-color: rgba(27, 145, 145, .6);
 }
 .infos_servicos{
     z-index: 2;
@@ -361,8 +370,10 @@ select{
     box-shadow: 1px 1px 3px black;
 }
 #button_att{
-    margin-top: 15%;
-    width: 100%;
+    position: absolute;
+    top: 90%;
+    width: 96%;
+    left: 2%;
     transition: background-color .2s;
 }
 #button_att:hover{
@@ -435,6 +446,48 @@ select{
     -webkit-clip-path: polygon(0% 0%, 00% 0, 100% 0%, 100% 60%, 0 100%, 0 0);
     clip-path: polygon(0 31%, 100% 10%, 100% 100%, 0% 100%);
 }
-.button_edit_user{
-    margin-top: 10% !important;
+#filtro_pecas{
+    margin-left: 5%;
+    width: 90%;
+    padding-top: 3%;
+    padding-bottom: 2%;
+}
+#barra_pesquisa{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px black;
+}
+.quadros_pecas{
+    box-shadow: 0px 0px 15px black;
+    border-radius: 10px;
+    width: 20%;
+    height: 30%;
+    float: left;
+    margin: 1%;
+    margin-left: 3%;
+    overflow: hidden;
+    font-size: 33px;
+    background-size: cover;
+    transition: width .1s, margin-left .1s;
+    text-shadow: 1px 1px 4px black;
+}
+.quadros_pecas:hover{
+    width: 21%;
+    margin-left: 2.5%;
+}
+.peca_sv{
+    float: left;
+    z-index: 1;
+    height: 100%;
+    bottom: 0px;
+    width: 60%;
+    padding-left: 15px;
+    padding-top: 15px;
+    text-shadow: 1px 1px 3px black;
+    -webkit-clip-path: polygon(0% 0%, 100% 0, 80% 0%, 100% 100%, 0 100%, 0 0);
+    clip-path:         polygon(0% 0%, 100% 0, 80% 0%, 100% 100%, 0 100%, 0 0);
+
+}
+#lista_pecas{
+    padding-top: 8%;
 }

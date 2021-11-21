@@ -68,6 +68,7 @@ function troca_tela(caso){
         document.location.href = urls[caso];
     }, 500);
 }
+
 function filtra_servicos(alvo){
     let alvos = ["ftl", "flt_finalizado", "flt_andamento", "flt_interrompido", "flt_pagamento", "flt_cancelado"];
 
@@ -85,6 +86,25 @@ function filtra_servicos(alvo){
     });
 
     mostrar = document.getElementsByClassName(alvos[alvo]);
+
+    for(let i = 0; i < mostrar.length; i++){
+        mostrar[i].style.display = "Block";
+    }
+}
+
+function filtra_pecas(){
+
+    let alvo_filtragem = document.getElementById("barra_pesquisa").value;
+    esconder = document.getElementsByClassName("all");
+
+    if(alvo_filtragem.length === 0)
+        alvo_filtragem = "all";
+
+    for(let i = 0; i < esconder.length; i++){
+        esconder[i].style.display = "None";
+    }
+
+    mostrar = document.getElementsByClassName(alvo_filtragem);
 
     for(let i = 0; i < mostrar.length; i++){
         mostrar[i].style.display = "Block";
