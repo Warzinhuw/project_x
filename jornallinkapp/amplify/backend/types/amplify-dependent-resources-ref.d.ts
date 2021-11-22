@@ -1,26 +1,32 @@
 export type AmplifyDependentResourcesAttributes = {
-    "storage": {
-        "jornallinkdb": {
+    "function": {
+        "mexpressauthCustomMessage": {
             "Name": "string",
             "Arn": "string",
-            "StreamArn": "string",
-            "PartitionKeyName": "string",
-            "PartitionKeyType": "string",
-            "SortKeyName": "string",
-            "SortKeyType": "string",
+            "LambdaExecutionRole": "string",
             "Region": "string"
         }
     },
-    "hosting": {
-        "S3AndCloudFront": {
-            "Region": "string",
-            "HostingBucketName": "string",
-            "WebsiteURL": "string",
-            "S3BucketSecureURL": "string"
+    "auth": {
+        "mexpressauth": {
+            "IdentityPoolId": "string",
+            "IdentityPoolName": "string",
+            "UserPoolId": "string",
+            "UserPoolArn": "string",
+            "UserPoolName": "string",
+            "AppClientIDWeb": "string",
+            "AppClientID": "string",
+            "CreatedSNSRole": "string"
+        }
+    },
+    "storage": {
+        "s3mexpressstorage": {
+            "BucketName": "string",
+            "Region": "string"
         }
     },
     "api": {
-        "projectx": {
+        "mexpress": {
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
         }

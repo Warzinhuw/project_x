@@ -1,28 +1,43 @@
 {
-  "staging": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-amplifycf1a654988134-staging-113941-authRole",
-      "UnauthRoleArn": "arn:aws:iam::034254117961:role/amplify-amplifycf1a654988134-staging-113941-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::034254117961:role/amplify-amplifycf1a654988134-staging-113941-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-amplifycf1a654988134-staging-113941-deployment",
-      "UnauthRoleName": "amplify-amplifycf1a654988134-staging-113941-unauthRole",
-      "StackName": "amplify-amplifycf1a654988134-staging-113941",
-      "StackId": "arn:aws:cloudformation:us-east-1:034254117961:stack/amplify-amplifycf1a654988134-staging-113941/e33ba990-46d1-11ec-9c4e-0a39f43dc539",
-      "AmplifyAppId": "d3sr0rku34k45j"
-    }
-  },
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-projectx-dev-105749-authRole",
-      "UnauthRoleArn": "arn:aws:iam::034254117961:role/amplify-projectx-dev-105749-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::034254117961:role/amplify-projectx-dev-105749-authRole",
+      "AuthRoleName": "amplify-mexpress-dev-214534-authRole",
+      "UnauthRoleArn": "arn:aws:iam::034254117961:role/amplify-mexpress-dev-214534-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::034254117961:role/amplify-mexpress-dev-214534-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-projectx-dev-105749-deployment",
-      "UnauthRoleName": "amplify-projectx-dev-105749-unauthRole",
-      "StackName": "amplify-projectx-dev-105749",
-      "StackId": "arn:aws:cloudformation:us-east-1:034254117961:stack/amplify-projectx-dev-105749/3c2d2750-46e5-11ec-bddd-0a011a83ac79",
-      "AmplifyAppId": "d3sr0rku34k45j"
+      "DeploymentBucketName": "amplify-mexpress-dev-214534-deployment",
+      "UnauthRoleName": "amplify-mexpress-dev-214534-unauthRole",
+      "StackName": "amplify-mexpress-dev-214534",
+      "StackId": "arn:aws:cloudformation:us-east-1:034254117961:stack/amplify-mexpress-dev-214534/e194db10-4808-11ec-9797-0e5faaf21f35",
+      "AmplifyAppId": "d24bna7q1p74jz"
+    }
+  },
+  "develop": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-mexpress-develop-215154-authRole",
+      "UnauthRoleArn": "arn:aws:iam::034254117961:role/amplify-mexpress-develop-215154-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::034254117961:role/amplify-mexpress-develop-215154-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-mexpress-develop-215154-deployment",
+      "UnauthRoleName": "amplify-mexpress-develop-215154-unauthRole",
+      "StackName": "amplify-mexpress-develop-215154",
+      "StackId": "arn:aws:cloudformation:us-east-1:034254117961:stack/amplify-mexpress-develop-215154/c3b3d190-4809-11ec-9a59-0e3b9b06dfed",
+      "AmplifyAppId": "d3h5o2r84rsw5o",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-mexpress-develop-215154-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "mexpressauth": {}
+      },
+      "function": {
+        "mexpressauthCustomMessage": {
+          "REDIRECTURL": "https://www.mexpress.com.br/",
+          "EMAILSUBJECT": "Código mexpress",
+          "EMAILMESSAGE": "Olá! Clique no link abaixo para confirmar o cadasto na Mexpress",
+          "deploymentBucketName": "amplify-mexpress-develop-215154-deployment",
+          "s3Key": "amplify-builds/mexpressauthCustomMessage-425a4670335776533036-build.zip"
+        }
+      }
     }
   }
 }
