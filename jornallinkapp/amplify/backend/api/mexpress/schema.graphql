@@ -1,0 +1,35 @@
+type Servico @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  pecas: [String!]
+  tipo_servico: String!
+  veiculo: Veiculo! @connection
+  preco: Float!
+  cliente: Usuario! @connection
+}
+
+type Peca @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nome: String!
+  qtd: Int!
+  preco: Float!
+}
+
+type Veiculo @model @auth(rules: [{allow: public}]) @key(name: "byUsuario", fields: ["usuarioID"]) {
+  id: ID!
+  placa: String!
+  modelo: String!
+  fabricante: String!
+  dono: String!
+  usuarioID: ID
+}
+
+type Usuario @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nome: String!
+  email: String!
+  telefone: String!
+  endereco: String
+  nascimento: String!
+  Veiculos: [Veiculo] @connection(keyName: "byUsuario", fields: ["id"])
+}
+ 

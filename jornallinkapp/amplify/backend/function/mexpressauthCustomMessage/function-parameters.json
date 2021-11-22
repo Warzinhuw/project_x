@@ -1,0 +1,21 @@
+{
+  "trigger": true,
+  "modules": [
+    "verification-link"
+  ],
+  "parentResource": "mexpressauth",
+  "functionName": "mexpressauthCustomMessage",
+  "resourceName": "mexpressauthCustomMessage",
+  "parentStack": "auth",
+  "triggerEnvs": "[\n  {\n    \"key\": \"RESOURCENAME\",\n    \"value\": \"resourceName\"\n  }\n]",
+  "triggerDir": "C:\\snapshot\\node_modules\\@aws-amplify\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\CustomMessage",
+  "triggerTemplate": "CustomMessage.json.ejs",
+  "triggerEventPath": "CustomMessage.event.json",
+  "roleName": "mexpressauthCustomMessage",
+  "skipEdit": true,
+  "REDIRECTURL": "https://www.mexpress.com.br/",
+  "EMAILSUBJECT": "Código mexpress",
+  "EMAILMESSAGE": "Olá! Clique no link abaixo para confirmar o cadasto na Mexpress",
+  "RESOURCENAME": "resourceName",
+  "enableCors": false
+}

@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3mexpressstorage",
+  "bucketName": "mexpress-storage",
+  "policyUUID": "4f66e52e",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "READ",
+    "CREATE_AND_UPDATE",
+    "DELETE"
+  ]
+}
