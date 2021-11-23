@@ -14,49 +14,51 @@ export const schema = {
                     "name": "pecas",
                     "isArray": true,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
                 },
-                "tipo_servico": {
-                    "name": "tipo_servico",
+                "servico_realizado": {
+                    "name": "servico_realizado",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
-                "veiculo": {
-                    "name": "veiculo",
+                "data_registro": {
+                    "name": "data_registro",
                     "isArray": false,
-                    "type": {
-                        "model": "Veiculo"
-                    },
-                    "isRequired": true,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetName": "servicoVeiculoId"
-                    }
-                },
-                "preco": {
-                    "name": "preco",
-                    "isArray": false,
-                    "type": "Float",
-                    "isRequired": true,
+                    "type": "AWSDate",
+                    "isRequired": false,
                     "attributes": []
                 },
-                "cliente": {
-                    "name": "cliente",
+                "data_termino": {
+                    "name": "data_termino",
                     "isArray": false,
-                    "type": {
-                        "model": "Usuario"
-                    },
-                    "isRequired": true,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetName": "servicoClienteId"
-                    }
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "custo": {
+                    "name": "custo",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "status": {
+                    "name": "status",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "usuarioID": {
+                    "name": "usuarioID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -81,6 +83,15 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byUsuario",
+                        "fields": [
+                            "usuarioID"
+                        ]
+                    }
                 },
                 {
                     "type": "auth",
@@ -124,11 +135,11 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "fabricante": {
-                    "name": "fabricante",
+                "usuarioID": {
+                    "name": "usuarioID",
                     "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
+                    "type": "ID",
+                    "isRequired": false,
                     "attributes": []
                 },
                 "dono": {
@@ -136,13 +147,6 @@ export const schema = {
                     "isArray": false,
                     "type": "String",
                     "isRequired": true,
-                    "attributes": []
-                },
-                "usuarioID": {
-                    "name": "usuarioID",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": false,
                     "attributes": []
                 },
                 "createdAt": {
@@ -196,6 +200,79 @@ export const schema = {
                 }
             ]
         },
+        "Peca": {
+            "name": "Peca",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "nome": {
+                    "name": "nome",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "preco": {
+                    "name": "preco",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "qtd": {
+                    "name": "qtd",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Pecas",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "Usuario": {
             "name": "Usuario",
             "fields": {
@@ -220,6 +297,13 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "nascimento": {
+                    "name": "nascimento",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "telefone": {
                     "name": "telefone",
                     "isArray": false,
@@ -227,17 +311,10 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "endereco": {
-                    "name": "endereco",
+                "tipo_usuario": {
+                    "name": "tipo_usuario",
                     "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "nascimento": {
-                    "name": "nascimento",
-                    "isArray": false,
-                    "type": "String",
+                    "type": "Boolean",
                     "isRequired": true,
                     "attributes": []
                 },
@@ -246,6 +323,20 @@ export const schema = {
                     "isArray": true,
                     "type": {
                         "model": "Veiculo"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "usuarioID"
+                    }
+                },
+                "Servicos": {
+                    "name": "Servicos",
+                    "isArray": true,
+                    "type": {
+                        "model": "Servico"
                     },
                     "isRequired": false,
                     "attributes": [],
@@ -296,82 +387,9 @@ export const schema = {
                     }
                 }
             ]
-        },
-        "Peca": {
-            "name": "Peca",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "nome": {
-                    "name": "nome",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "qtd": {
-                    "name": "qtd",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "preco": {
-                    "name": "preco",
-                    "isArray": false,
-                    "type": "Float",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                }
-            },
-            "syncable": true,
-            "pluralName": "Pecas",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
         }
     },
     "enums": {},
     "nonModels": {},
-    "version": "d49aad6a92858eb740b7f61d753ba3c8"
+    "version": "a85d13596e0f0abdf6683fca4092af70"
 };
