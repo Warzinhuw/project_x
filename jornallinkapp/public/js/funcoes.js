@@ -110,3 +110,11 @@ function filtra_pecas(){
         mostrar[i].style.display = "Block";
     }
 }
+
+async function logOut(){
+    try {
+        await Auth.signOut();
+    } catch (error) {
+        console.log('error signing out: ', error);
+    }
+}
