@@ -1,4 +1,4 @@
-import { Servicos } from "../Servicos";
+import { Servicos } from "../../paginas/Servicos";
 
 const servicos = [{ placa: "ABC-1234", veiculo: "Ford Ka", trabalho: "Troca de óleo", status: "Em andamento" },
 { placa: "ABC-5497", veiculo: "Ford Ka", trabalho: "Troca de óleo", status: "Em andamento" }]
