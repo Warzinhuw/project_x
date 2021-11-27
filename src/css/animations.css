@@ -1,0 +1,21 @@
+@keyframes aparece_bloco{
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes esconde_bloco{
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@keyframes transita_telas{
+    from { right: 0px; top: 0px; }
+    to { width: 100%; }
+}
+@keyframes transita_entrada {
+    from { display: block; left: 0px; width: 100%; }
+    to { display: block; left: 0px; width: 0%; }
+}
+@keyframes pisca_barra {
+    0% { background-color: rgba(80, 80, 80, .8); }
+    50% { background-color: rgba(27, 145, 145, .8); }
+    100% { background-color: rgba(80, 80, 80, .8); }
+}
