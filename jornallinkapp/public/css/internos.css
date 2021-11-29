@@ -1,7 +1,0 @@
-#transitador{
-    animation: transita_entrada .5s !important;
-    display: block !important;
-}
-a:hover{
-    color: white !important;
-}

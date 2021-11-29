@@ -1,5 +1,12 @@
 {
   "AppSyncApiName": "mexpress",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authmexpress7f0c054b",
+      "Outputs.UserPoolId"
+    ]
+  },
+  "AuthModeLastUpdated": "2021-11-29T22:04:01.372Z"
 }

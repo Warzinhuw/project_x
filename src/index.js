@@ -6,9 +6,6 @@ import reportWebVitals from './reportWebVitals';
 
 import { I18n } from 'aws-amplify';
 import AmplifyI18n from 'amplify-i18n';
-import Amplify from 'aws-amplify';
-import config from './aws-exports';
-Amplify.configure(config);
 
 const locales = ["en", "fr", "pt-BR"]
 AmplifyI18n.configure(locales)

@@ -3,6 +3,8 @@ export type AmplifyDependentResourcesAttributes = {
         "mexpress7f0c054b": {
             "IdentityPoolId": "string",
             "IdentityPoolName": "string",
+            "HostedUIDomain": "string",
+            "OAuthMetadata": "string",
             "UserPoolId": "string",
             "UserPoolArn": "string",
             "UserPoolName": "string",

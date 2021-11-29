@@ -2,13 +2,13 @@ export function QuadrosUser() {
     return (
         <>
             <div id="quadros_opcoes">
-                <a href="./Veiculos/index.jsx">
+                <a href="./veiculos/index.jsx">
                     <div className="quadros_user" id="imagem_veiculos">
                         <span className="detalhe_quadro">Seus veículos</span> {/* Veículos registrados */}
                     </div>
                 </a>
                 
-                <a href="./Servicos/index.jsx">
+                <a href="./servicos/index.jsx">
                     <div className="quadros_user" id="imagem_servicos">
                         <span className="detalhe_quadro">Serviços requisitados</span>
                     </div>
@@ -20,13 +20,13 @@ export function QuadrosUser() {
                     </div>
                 </a>
 
-                <a href="./Clientes/index.jsx">
+                <a href="./clientes/index.jsx">
                     <div className="quadros_user" id="imagem_clientes">
                         <span className="detalhe_quadro">Clientes</span>
                     </div>
                 </a>
 
-                <a href="./Estoque/index.jsx">
+                <a href="./estoque/index.jsx">
                     <div className="quadros_user" id="imagem_estoque">
                         <span className="detalhe_quadro">Estoque</span>
                     </div>
