@@ -14,10 +14,10 @@ import { AddVeiculo } from './pages/Veiculos/AddVeiculo';
 import { EditarVeiculo } from './pages/Veiculos/EditarVeiculo';
 import { AddServico } from './pages/Servicos/AddServico';
 import { EditarServico } from './pages/Servicos/EditarServico';
-import { AddVeiculo } from './pages/Veiculos/AddVeiculo';
-import { EditarVeiculo } from './pages/Veiculos/EditarVeiculo';
+import { AddEstoque } from './pages/Estoque/AddEstoque';
+import { EditarEstoque } from './pages/Estoque/EditarEstoque';
 
-import { withAuthenticator } from 'aws-amplify-react';
+// import { withAuthenticator } from 'aws-amplify-react';
 
 import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
