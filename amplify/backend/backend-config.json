@@ -1,19 +1,30 @@
 {
   "auth": {
-    "mexpress7f0c054b": {
+    "test": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false,
       "frontendAuthConfig": {
         "socialProviders": [],
-        "usernameAttributes": [],
-        "signupAttributes": [
+        "usernameAttributes": [
           "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL",
+          "PHONE_NUMBER",
+          "BIRTHDATE",
+          "NAME",
+          "ADDRESS"
         ],
         "passwordProtectionSettings": {
           "passwordPolicyMinLength": 8,
-          "passwordPolicyCharacters": []
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS",
+            "REQUIRES_UPPERCASE"
+          ]
         },
         "mfaConfiguration": "OFF",
         "mfaTypes": [
@@ -26,7 +37,7 @@
     }
   },
   "api": {
-    "mexpress": {
+    "test": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
@@ -45,7 +56,7 @@
             {
               "authenticationType": "AMAZON_COGNITO_USER_POOLS",
               "userPoolConfig": {
-                "userPoolId": "authmexpress7f0c054b"
+                "userPoolId": "authtest"
               }
             }
           ]

@@ -29,7 +29,6 @@ export function EditarVeiculo() {
         await API.graphql({ query: deleteVeiculoMutation, variables: { input:  id  } })
     }
 
-
     return (
         <>
             <HeaderEdicao />
@@ -49,7 +48,8 @@ export function EditarVeiculo() {
                         <option value="id_gertudres">Gertudres</option>
                     </select>
                 </div>
-                <button id="button_att">Atualizar dados</button> {/*<!-- Aparecer somente quando estiver editando um veículo já cadastrado -->*/}
+
+                <button id="button_att">Atualizar dados</button>
             </div>
         </>
     )

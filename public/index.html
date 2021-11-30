@@ -16,6 +16,19 @@
     <div id="root"></div>
 </body>
 <script>
+
+    $(document).ready(function(){
+        $("#imagem_configura").click(() => {
+            $("#perfil_usuario").fadeIn();
+            $("#config_perfil").fadeOut();
+        });
+
+        $("#config_perfil").click(() => {
+            $("#perfil_usuario").fadeOut();
+            $("#config_perfil").fadeIn();
+        });
+    });
+
     function filtra_servicos(alvo){
         let alvos = ["ftl", "flt_finalizado", "flt_andamento", "flt_interrompido", "flt_pagamento", "flt_cancelado"];
 

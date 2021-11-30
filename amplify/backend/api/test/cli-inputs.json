@@ -1,18 +1,13 @@
 {
   "version": 1,
   "serviceConfiguration": {
-    "apiName": "mexpress",
+    "apiName": "test",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "/tmp/amplify-a2ace7da-d29e-4cd3-bf87-cacd73a29070/amplify/backend/api/mexpress/schema.graphql",
+    "gqlSchemaPath": "/tmp/amplify-6ad06b61-dfad-48e4-912b-b88ca4a88f2b/amplify/backend/api/test/schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
       "keyDescription": "api key description",
       "expirationTime": 30
-    },
-    "conflictResolution": {
-      "defaultResolutionStrategy": {
-        "type": "AUTOMERGE"
-      }
     },
     "additionalAuthTypes": [
       {
@@ -20,8 +15,13 @@
       },
       {
         "mode": "AMAZON_COGNITO_USER_POOLS",
-        "cognitoUserPoolId": "authmexpress7f0c054b"
+        "cognitoUserPoolId": "authtest"
       }
-    ]
+    ],
+    "conflictResolution": {
+      "defaultResolutionStrategy": {
+        "type": "AUTOMERGE"
+      }
+    }
   }
 }
