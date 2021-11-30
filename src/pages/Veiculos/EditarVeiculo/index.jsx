@@ -2,11 +2,14 @@ import { useEffect, useState } from "react"
 import { HeaderEdicao } from "../../../components/HeaderEdicao"
 import { API } from 'aws-amplify';
 import { getVeiculo, listVeiculos } from "../../../graphql/queries"
-import { deleteVeiculo as deleteVeiculoMutation, updateVeiculo as updateVeiculoMutation } from "../../../graphql/mutations";
+import { updateVeiculo as updateVeiculoMutation } from "../../../graphql/mutations"
+import { useNavigate } from "react-router-dom"
 
 const initialFormState = { 'placa': '', 'modelo': '', 'fabricante': '' }
 
 export function EditarVeiculo() {
+
+    const navigate = useNavigate();
 
     let url = window.location.href;
     let veiculoId = url.split("/")[6].replace("#", "")
@@ -20,26 +23,34 @@ export function EditarVeiculo() {
 
     async function fetchVeiculo() {
         const apiData = await API.graphql({ query: getVeiculo, variables: { id: veiculoId } });
-        setVeiculo(apiData.data.getVeiculo)
-        console.log(apiData.data.getVeiculo)
-    } 
+        const veiculoTmp = apiData.data.getVeiculo
+        setVeiculo(veiculoTmp)
+        setFormData({ ...formData, placa: veiculoTmp.placa, modelo: veiculoTmp.modelo, fabricante: veiculoTmp.fabricante }) //atualiza o form com os dados do objeto veículo
+    }
 
-    async function deleteVeiculo(id) {
-        console.log(id)
-        await API.graphql({ query: deleteVeiculoMutation, variables: { input:  id  } })
+    async function updateVeiculo() {
+        const veiculoUpdate = {
+            id: veiculo.id,
+            _version: veiculo._version,
+            placa: formData.placa,
+            modelo: formData.modelo,
+            fabricante: formData.fabricante
+        }
+        await API.graphql({ query: updateVeiculoMutation, variables: { input: veiculoUpdate } }).finally(setTimeout(function () {
+            navigate(-1)
+        }, 100))
     }
 
     return (
         <>
             <HeaderEdicao />
-            <a href="#" onClick={() => deleteVeiculo(veiculo)} id="botao_cancelar">Remover veículo</a> {/*<!-- Aparecer somente quando estiver editando um veículo já cadastrado -->*/}
             <div id="quadro_edicao_dados">
                 <div id="grupo_inputs">
-                    <input onChange={e => setFormData({ ...formData, 'placa': e.target.value })} value={veiculo.placa} type="text" className="input_edit" placeholder="Placa do veículo" required />
+                    <input onChange={e => setFormData({ ...formData, placa: e.target.value })} value={formData.placa} type="text" className="input_edit" placeholder="Placa do veículo" required />
 
-                    <input onChange={e => setFormData({ ...formData, 'modelo': e.target.value })} value={veiculo.modelo} type="text" className="input_edit" placeholder="Modelo" required />
+                    <input onChange={e => setFormData({ ...formData, modelo: e.target.value })} value={formData.modelo} type="text" className="input_edit" placeholder="Modelo" required />
 
-                    <input onChange={e => setFormData({ ...formData, 'fabricante': e.target.value })} value={veiculo.fabricante} type="text" className="input_edit" placeholder="Fabricante" required />
+                    <input onChange={e => setFormData({ ...formData, fabricante: e.target.value })} value={formData.fabricante} type="text" className="input_edit" placeholder="Fabricante" required />
                 </div>
                 <div id="grupo_selects">
                     <h1>Proprietário</h1>
@@ -49,7 +60,9 @@ export function EditarVeiculo() {
                     </select>
                 </div>
 
-                <button id="button_att">Atualizar dados</button>
+                <button id="button_att" onClick={() => {
+                    updateVeiculo()
+                }}>Atualizar dados</button>
             </div>
         </>
     )

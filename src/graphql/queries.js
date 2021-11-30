@@ -1,12 +1,88 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getServico = /* GraphQL */ `
+  query GetServico($id: ID!) {
+    getServico(id: $id) {
+      id
+      servico_realizado
+      data_termino
+      data_inicio
+      status
+      custo
+      placa
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const listServicos = /* GraphQL */ `
+  query ListServicos(
+    $filter: ModelServicoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listServicos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        servico_realizado
+        data_termino
+        data_inicio
+        status
+        custo
+        placa
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncServicos = /* GraphQL */ `
+  query SyncServicos(
+    $filter: ModelServicoFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncServicos(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        servico_realizado
+        data_termino
+        data_inicio
+        status
+        custo
+        placa
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
 export const getEstoque = /* GraphQL */ `
   query GetEstoque($id: ID!) {
     getEstoque(id: $id) {
       id
       nome
-      qtd
+      quantidade
       createdAt
       updatedAt
       _version
@@ -25,7 +101,7 @@ export const listEstoques = /* GraphQL */ `
       items {
         id
         nome
-        qtd
+        quantidade
         createdAt
         updatedAt
         _version
@@ -53,80 +129,7 @@ export const syncEstoques = /* GraphQL */ `
       items {
         id
         nome
-        qtd
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const getServico = /* GraphQL */ `
-  query GetServico($id: ID!) {
-    getServico(id: $id) {
-      id
-      placa
-      servico_realizado
-      data_termino
-      custo
-      status
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const listServicos = /* GraphQL */ `
-  query ListServicos(
-    $filter: ModelServicoFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listServicos(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        placa
-        servico_realizado
-        data_termino
-        custo
-        status
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const syncServicos = /* GraphQL */ `
-  query SyncServicos(
-    $filter: ModelServicoFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncServicos(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        placa
-        servico_realizado
-        data_termino
-        custo
-        status
+        quantidade
         createdAt
         updatedAt
         _version
@@ -145,23 +148,9 @@ export const getCliente = /* GraphQL */ `
       nome
       email
       endereco
-      nascimento
       telefone
+      data_nascimento
       Veiculos {
-        items {
-          id
-          placa
-          modelo
-          fabricante
-          clienteID
-          status
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-          veiculoServicoId
-        }
         nextToken
         startedAt
       }
@@ -185,12 +174,8 @@ export const listClientes = /* GraphQL */ `
         nome
         email
         endereco
-        nascimento
         telefone
-        Veiculos {
-          nextToken
-          startedAt
-        }
+        data_nascimento
         createdAt
         updatedAt
         _version
@@ -220,12 +205,8 @@ export const syncClientes = /* GraphQL */ `
         nome
         email
         endereco
-        nascimento
         telefone
-        Veiculos {
-          nextToken
-          startedAt
-        }
+        data_nascimento
         createdAt
         updatedAt
         _version
@@ -245,26 +226,11 @@ export const getVeiculo = /* GraphQL */ `
       modelo
       fabricante
       clienteID
-      Servico {
-        id
-        placa
-        servico_realizado
-        data_termino
-        custo
-        status
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      status
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      veiculoServicoId
     }
   }
 `;
@@ -281,26 +247,11 @@ export const listVeiculos = /* GraphQL */ `
         modelo
         fabricante
         clienteID
-        Servico {
-          id
-          placa
-          servico_realizado
-          data_termino
-          custo
-          status
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        status
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        veiculoServicoId
       }
       nextToken
       startedAt
@@ -326,26 +277,11 @@ export const syncVeiculos = /* GraphQL */ `
         modelo
         fabricante
         clienteID
-        Servico {
-          id
-          placa
-          servico_realizado
-          data_termino
-          custo
-          status
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        status
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        veiculoServicoId
       }
       nextToken
       startedAt

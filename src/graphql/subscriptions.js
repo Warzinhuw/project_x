@@ -1,12 +1,66 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateServico = /* GraphQL */ `
+  subscription OnCreateServico {
+    onCreateServico {
+      id
+      servico_realizado
+      data_termino
+      data_inicio
+      status
+      custo
+      placa
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateServico = /* GraphQL */ `
+  subscription OnUpdateServico {
+    onUpdateServico {
+      id
+      servico_realizado
+      data_termino
+      data_inicio
+      status
+      custo
+      placa
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteServico = /* GraphQL */ `
+  subscription OnDeleteServico {
+    onDeleteServico {
+      id
+      servico_realizado
+      data_termino
+      data_inicio
+      status
+      custo
+      placa
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
 export const onCreateEstoque = /* GraphQL */ `
   subscription OnCreateEstoque {
     onCreateEstoque {
       id
       nome
-      qtd
+      quantidade
       createdAt
       updatedAt
       _version
@@ -20,7 +74,7 @@ export const onUpdateEstoque = /* GraphQL */ `
     onUpdateEstoque {
       id
       nome
-      qtd
+      quantidade
       createdAt
       updatedAt
       _version
@@ -34,58 +88,7 @@ export const onDeleteEstoque = /* GraphQL */ `
     onDeleteEstoque {
       id
       nome
-      qtd
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onCreateServico = /* GraphQL */ `
-  subscription OnCreateServico {
-    onCreateServico {
-      id
-      placa
-      servico_realizado
-      data_termino
-      custo
-      status
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onUpdateServico = /* GraphQL */ `
-  subscription OnUpdateServico {
-    onUpdateServico {
-      id
-      placa
-      servico_realizado
-      data_termino
-      custo
-      status
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onDeleteServico = /* GraphQL */ `
-  subscription OnDeleteServico {
-    onDeleteServico {
-      id
-      placa
-      servico_realizado
-      data_termino
-      custo
-      status
+      quantidade
       createdAt
       updatedAt
       _version
@@ -101,23 +104,9 @@ export const onCreateCliente = /* GraphQL */ `
       nome
       email
       endereco
-      nascimento
       telefone
+      data_nascimento
       Veiculos {
-        items {
-          id
-          placa
-          modelo
-          fabricante
-          clienteID
-          status
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-          veiculoServicoId
-        }
         nextToken
         startedAt
       }
@@ -136,23 +125,9 @@ export const onUpdateCliente = /* GraphQL */ `
       nome
       email
       endereco
-      nascimento
       telefone
+      data_nascimento
       Veiculos {
-        items {
-          id
-          placa
-          modelo
-          fabricante
-          clienteID
-          status
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-          veiculoServicoId
-        }
         nextToken
         startedAt
       }
@@ -171,23 +146,9 @@ export const onDeleteCliente = /* GraphQL */ `
       nome
       email
       endereco
-      nascimento
       telefone
+      data_nascimento
       Veiculos {
-        items {
-          id
-          placa
-          modelo
-          fabricante
-          clienteID
-          status
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-          veiculoServicoId
-        }
         nextToken
         startedAt
       }
@@ -207,26 +168,11 @@ export const onCreateVeiculo = /* GraphQL */ `
       modelo
       fabricante
       clienteID
-      Servico {
-        id
-        placa
-        servico_realizado
-        data_termino
-        custo
-        status
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      status
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      veiculoServicoId
     }
   }
 `;
@@ -238,26 +184,11 @@ export const onUpdateVeiculo = /* GraphQL */ `
       modelo
       fabricante
       clienteID
-      Servico {
-        id
-        placa
-        servico_realizado
-        data_termino
-        custo
-        status
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      status
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      veiculoServicoId
     }
   }
 `;
@@ -269,26 +200,11 @@ export const onDeleteVeiculo = /* GraphQL */ `
       modelo
       fabricante
       clienteID
-      Servico {
-        id
-        placa
-        servico_realizado
-        data_termino
-        custo
-        status
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      status
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      veiculoServicoId
     }
   }
 `;
