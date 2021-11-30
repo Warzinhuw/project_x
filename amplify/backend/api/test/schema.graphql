@@ -31,3 +31,4 @@ type Veiculo @model @auth(rules: [{allow: public}]) {
   fabricante: String
   clienteID: ID @index(name: "byCliente")
 }
+ 

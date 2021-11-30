@@ -1,6 +1,69 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createServico = /* GraphQL */ `
+  mutation CreateServico(
+    $input: CreateServicoInput!
+    $condition: ModelServicoConditionInput
+  ) {
+    createServico(input: $input, condition: $condition) {
+      id
+      servico_realizado
+      data_termino
+      data_inicio
+      status
+      custo
+      placa
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateServico = /* GraphQL */ `
+  mutation UpdateServico(
+    $input: UpdateServicoInput!
+    $condition: ModelServicoConditionInput
+  ) {
+    updateServico(input: $input, condition: $condition) {
+      id
+      servico_realizado
+      data_termino
+      data_inicio
+      status
+      custo
+      placa
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteServico = /* GraphQL */ `
+  mutation DeleteServico(
+    $input: DeleteServicoInput!
+    $condition: ModelServicoConditionInput
+  ) {
+    deleteServico(input: $input, condition: $condition) {
+      id
+      servico_realizado
+      data_termino
+      data_inicio
+      status
+      custo
+      placa
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
 export const createEstoque = /* GraphQL */ `
   mutation CreateEstoque(
     $input: CreateEstoqueInput!
@@ -9,7 +72,7 @@ export const createEstoque = /* GraphQL */ `
     createEstoque(input: $input, condition: $condition) {
       id
       nome
-      qtd
+      quantidade
       createdAt
       updatedAt
       _version
@@ -26,7 +89,7 @@ export const updateEstoque = /* GraphQL */ `
     updateEstoque(input: $input, condition: $condition) {
       id
       nome
-      qtd
+      quantidade
       createdAt
       updatedAt
       _version
@@ -43,67 +106,7 @@ export const deleteEstoque = /* GraphQL */ `
     deleteEstoque(input: $input, condition: $condition) {
       id
       nome
-      qtd
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const createServico = /* GraphQL */ `
-  mutation CreateServico(
-    $input: CreateServicoInput!
-    $condition: ModelServicoConditionInput
-  ) {
-    createServico(input: $input, condition: $condition) {
-      id
-      placa
-      servico_realizado
-      data_termino
-      custo
-      status
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const updateServico = /* GraphQL */ `
-  mutation UpdateServico(
-    $input: UpdateServicoInput!
-    $condition: ModelServicoConditionInput
-  ) {
-    updateServico(input: $input, condition: $condition) {
-      id
-      placa
-      servico_realizado
-      data_termino
-      custo
-      status
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const deleteServico = /* GraphQL */ `
-  mutation DeleteServico(
-    $input: DeleteServicoInput!
-    $condition: ModelServicoConditionInput
-  ) {
-    deleteServico(input: $input, condition: $condition) {
-      id
-      placa
-      servico_realizado
-      data_termino
-      custo
-      status
+      quantidade
       createdAt
       updatedAt
       _version
@@ -122,23 +125,9 @@ export const createCliente = /* GraphQL */ `
       nome
       email
       endereco
-      nascimento
       telefone
+      data_nascimento
       Veiculos {
-        items {
-          id
-          placa
-          modelo
-          fabricante
-          clienteID
-          status
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-          veiculoServicoId
-        }
         nextToken
         startedAt
       }
@@ -160,23 +149,9 @@ export const updateCliente = /* GraphQL */ `
       nome
       email
       endereco
-      nascimento
       telefone
+      data_nascimento
       Veiculos {
-        items {
-          id
-          placa
-          modelo
-          fabricante
-          clienteID
-          status
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-          veiculoServicoId
-        }
         nextToken
         startedAt
       }
@@ -198,23 +173,9 @@ export const deleteCliente = /* GraphQL */ `
       nome
       email
       endereco
-      nascimento
       telefone
+      data_nascimento
       Veiculos {
-        items {
-          id
-          placa
-          modelo
-          fabricante
-          clienteID
-          status
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-          veiculoServicoId
-        }
         nextToken
         startedAt
       }
@@ -237,26 +198,11 @@ export const createVeiculo = /* GraphQL */ `
       modelo
       fabricante
       clienteID
-      Servico {
-        id
-        placa
-        servico_realizado
-        data_termino
-        custo
-        status
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      status
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      veiculoServicoId
     }
   }
 `;
@@ -271,26 +217,11 @@ export const updateVeiculo = /* GraphQL */ `
       modelo
       fabricante
       clienteID
-      Servico {
-        id
-        placa
-        servico_realizado
-        data_termino
-        custo
-        status
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      status
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      veiculoServicoId
     }
   }
 `;
@@ -305,26 +236,11 @@ export const deleteVeiculo = /* GraphQL */ `
       modelo
       fabricante
       clienteID
-      Servico {
-        id
-        placa
-        servico_realizado
-        data_termino
-        custo
-        status
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      status
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-      veiculoServicoId
     }
   }
 `;

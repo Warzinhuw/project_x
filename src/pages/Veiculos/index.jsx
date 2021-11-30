@@ -8,21 +8,22 @@ export function Veiculos() {
 
     const [veiculos, setVeiculos] = useState([]);
 
-    // useEffect(() => {
-    //     fetchVeiculos();
-    // }, [])
+    useEffect(() => {
+        fetchVeiculos();
+    }, [])
 
-    // async function fetchVeiculos() {
-    //     const apiData = await API.graphql({ query: listVeiculos });
-    //     setVeiculos(apiData.data.listVeiculos.items);
-    // }
+    async function fetchVeiculos() {
+        const apiData = await API.graphql({ query: listVeiculos });
+        setVeiculos(apiData.data.listVeiculos.items);
+    }
 
-    async function deleteVeiculo(idTmp) {
-        console.log(idTmp)
-        const newVeiculosArray = veiculos.filter(veiculo => veiculo.id !== idTmp)
+    async function deleteVeiculo(veiculoTmp) {
+        const todoDelete = {
+            id: veiculoTmp.id
+        }
+        const newVeiculosArray = veiculos.filter(veiculo => veiculo.id !== veiculoTmp.id)
         setVeiculos(newVeiculosArray)
-        await API.graphql({ query: deleteVeiculoMutation, variables: { input: idTmp } })
-        
+        await API.graphql({ query: deleteVeiculoMutation, variables: { input: todoDelete } })
     }
 
     return (
@@ -36,20 +37,22 @@ export function Veiculos() {
                     {/* Aparecer somente para admins */}
                     <a href="./add_veiculo/index.jsx" className="button">Adicionar um veículo</a>
                 </div>
-                {
-                    veiculos.map(veiculo => (
-                        <div>
-                            <div key={veiculo.id || veiculo.name} className="quadros_veiculos" id="imagem_veiculos">
-                                <span className="detalhe_quadro_veiculo_cima">{veiculo.modelo} <br />{veiculo.placa}</span>
-                                <span className="detalhe_quadro_veiculo_baixo">Dono(a): Josival</span>  {/* Só deve aparecer se o usuário for adm */}
+                <div>
+                    {
+                        veiculos.map(veiculo => (
+                            <div key={veiculo.id || veiculo.name}>
+                                <div className="quadros_veiculos" id="imagem_veiculos">
+                                    <span className="detalhe_quadro_veiculo_cima">{veiculo.modelo} <br />{veiculo.placa}</span>
+                                    <span className="detalhe_quadro_veiculo_baixo">Dono(a): Josival</span>  {/* Só deve aparecer se o usuário for adm */}
+                                    <button onClick={() => deleteVeiculo(veiculo)}>Deletar veiculo</button>
+                                    <button onClick={() => {
+                                        document.location.href = "./editar_veiculo/index.jsx/" + veiculo.id;
+                                    }}>Editar veiculo</button>
+                                </div>
                             </div>
-                            <button onClick={() => deleteVeiculo(veiculo)}>Deletar veiculo</button>
-                            <button onClick={() => {
-                                document.location.href = "./editar_veiculo/index.jsx/" + veiculo.id;
-                            }}>Editar veiculo</button>
-                        </div>
-                    ))
-                }
+                        ))
+                    }
+                </div>
             </div>
             <div id="transitador"></div>
         </>

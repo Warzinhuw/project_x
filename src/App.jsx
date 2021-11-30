@@ -17,7 +17,7 @@ import { EditarServico } from './pages/Servicos/EditarServico';
 import { AddEstoque } from './pages/Estoque/AddEstoque';
 import { EditarEstoque } from './pages/Estoque/EditarEstoque';
 
-// import { withAuthenticator } from 'aws-amplify-react';
+import { withAuthenticator } from '@aws-amplify/ui-react';
 
 import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
@@ -45,4 +45,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);
