@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { HeaderEdicao } from "../../../components/HeaderEdicao"
 import { API } from 'aws-amplify';
 import { getCliente, listClientes } from "../../../graphql/queries"
