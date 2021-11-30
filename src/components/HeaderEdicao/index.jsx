@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import Auth from "@aws-amplify/auth"
+import { useNavigate } from "react-router-dom";
 
-export default function HeaderEdicao() {
+export function HeaderEdicao() {
+    const navigate = useNavigate();
 
     const locale = "pt-br"
 
@@ -23,7 +25,7 @@ export default function HeaderEdicao() {
     }, [])
 
     const dateToday = currentDate.toLocaleDateString(locale, {timeZone: 'America/Sao_Paulo'})
-    const timeNow = currentDate.toLocaleDateString(locale, { hour: 'numeric', hour12: false, minute: 'numeric', second: 'numeric'})
+    const timeNow = currentDate.toLocaleTimeString(locale, { hour: 'numeric', hour12: false, minute: 'numeric', second: 'numeric'})
 
     return (
         <>
@@ -33,7 +35,7 @@ export default function HeaderEdicao() {
                 {username} | Agora são {timeNow} de <em><span>{dateToday}</span></em>
 
                 <nav style={{ float: "right" }}>
-                    <a href="../veiculos.html">Voltar</a> |
+                    <a href="#" onClick={() => navigate(-1)}>Voltar</a> |
                     <a href="../../index.html">Deslogar</a>
                 </nav>
             </header>

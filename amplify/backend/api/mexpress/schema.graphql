@@ -30,15 +30,9 @@ type Veiculo @model @auth(rules: [{allow: public}]) {
   fabricante: String
   clienteID: ID @index(name: "byCliente")
   Servico: Servico @hasOne
+  status: String
 }
 
 input AMPLIFY {
   globalAuthRule: AuthRule = {allow: public}
 }
-
-type Note @model {
-  id: ID!
-  name: String!
-  description: String
-}
- 

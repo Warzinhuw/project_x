@@ -20,10 +20,6 @@ type VeiculoMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
-type NoteMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
 export declare class Estoque {
   readonly id: string;
   readonly nome?: string;
@@ -68,19 +64,10 @@ export declare class Veiculo {
   readonly fabricante?: string;
   readonly clienteID?: string;
   readonly Servico?: Servico;
+  readonly status?: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   readonly veiculoServicoId?: string;
   constructor(init: ModelInit<Veiculo, VeiculoMetaData>);
   static copyOf(source: Veiculo, mutator: (draft: MutableModel<Veiculo, VeiculoMetaData>) => MutableModel<Veiculo, VeiculoMetaData> | void): Veiculo;
-}
-
-export declare class Note {
-  readonly id: string;
-  readonly name: string;
-  readonly description?: string;
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
-  constructor(init: ModelInit<Note, NoteMetaData>);
-  static copyOf(source: Note, mutator: (draft: MutableModel<Note, NoteMetaData>) => MutableModel<Note, NoteMetaData> | void): Note;
 }
