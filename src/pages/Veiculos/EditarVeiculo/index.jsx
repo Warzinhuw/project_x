@@ -11,18 +11,18 @@ export function EditarVeiculo() {
     let url = window.location.href;
     let veiculoId = url.split("/")[6].replace("#", "")
 
-    useEffect(() => {
-        fetchVeiculo();
-    }, []);
+    // useEffect(() => {
+    //     fetchVeiculo();
+    // }, []);
 
     const [veiculo, setVeiculo] = useState([])
     const [formData, setFormData] = useState(initialFormState)
 
-    async function fetchVeiculo() {
-        const apiData = await API.graphql({ query: getVeiculo, variables: { id: veiculoId } });
-        setVeiculo(apiData.data.getVeiculo)
-        console.log(apiData.data.getVeiculo)
-    }
+    // async function fetchVeiculo() {
+    //     const apiData = await API.graphql({ query: getVeiculo, variables: { id: veiculoId } });
+    //     setVeiculo(apiData.data.getVeiculo)
+    //     console.log(apiData.data.getVeiculo)
+    // } 
 
     async function deleteVeiculo(id) {
         console.log(id)

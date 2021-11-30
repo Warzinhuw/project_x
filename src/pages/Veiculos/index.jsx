@@ -8,14 +8,14 @@ export function Veiculos() {
 
     const [veiculos, setVeiculos] = useState([]);
 
-    useEffect(() => {
-        fetchVeiculos();
-    }, [])
+    // useEffect(() => {
+    //     fetchVeiculos();
+    // }, [])
 
-    async function fetchVeiculos() {
-        const apiData = await API.graphql({ query: listVeiculos });
-        setVeiculos(apiData.data.listVeiculos.items);
-    }
+    // async function fetchVeiculos() {
+    //     const apiData = await API.graphql({ query: listVeiculos });
+    //     setVeiculos(apiData.data.listVeiculos.items);
+    // }
 
     async function deleteVeiculo(idTmp) {
         console.log(idTmp)
