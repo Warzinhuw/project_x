@@ -22,7 +22,7 @@ export function EditarVeiculo() {
     //     const apiData = await API.graphql({ query: getVeiculo, variables: { id: veiculoId } });
     //     setVeiculo(apiData.data.getVeiculo)
     //     console.log(apiData.data.getVeiculo)
-    // }
+    // } 
 
     async function deleteVeiculo(id) {
         console.log(id)
