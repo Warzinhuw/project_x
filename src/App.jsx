@@ -11,6 +11,7 @@ import Estoque from './pages/Estoque';
 import Erro from './pages/Erro';
 
 import { Footer } from './components/Footer/footer';
+import { AddVeiculo } from './pages/Veiculos/AddVeiculo';
 import { EditarVeiculo } from './pages/Veiculos/EditarVeiculo';
 import { withAuthenticator } from 'aws-amplify-react';
 
@@ -25,13 +26,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="veiculos/*" element={<Veiculos />} />
+          <Route path="veiculos/add_veiculo/*" element={<AddVeiculo />} />
           <Route path="veiculos/editar_veiculo/*" element={<EditarVeiculo />} />
           <Route path="clientes/*" element={<Clientes />} />
           <Route path="estoque/*" element={<Estoque />} />
           <Route path="erro/*" element={<Erro />} />
         </Routes>
       </BrowserRouter>
-      <Footer />
     </>
   );
 }
