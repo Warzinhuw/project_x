@@ -36,11 +36,12 @@ export function EditarVeiculo() {
             modelo: formData.modelo,
             fabricante: formData.fabricante
         }
+
         await API.graphql({ query: updateVeiculoMutation, variables: { input: veiculoUpdate } }).finally(setTimeout(function () {
             navigate(-1)
-        }, 100))
+        }, 500))
     }
-
+    
     return (
         <>
             <HeaderEdicao />

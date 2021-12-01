@@ -14,17 +14,17 @@ export function QuadrosUser() {
                     </div>
                 </a>
 
-                <a href="#">
+                {/* <a href="#">
                     <div className="quadros_user" id="imagem_configura">
                         <span className="detalhe_quadro">Configurações</span>
                     </div>
-                </a>
+                </a> */}
 
-                <a href="./clientes/index.jsx">
+                {/* <a href="./clientes/index.jsx">
                     <div className="quadros_user" id="imagem_clientes">
                         <span className="detalhe_quadro">Clientes</span>
                     </div>
-                </a>
+                </a> */}
 
                 <a href="./estoque/index.jsx">
                     <div className="quadros_user" id="imagem_estoque">

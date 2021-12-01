@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { API } from 'aws-amplify';
 import { HeaderEdicao } from "../../components/HeaderEdicao";
 import { listServicos } from "../../graphql/queries"
-import { deleteServico as deleteServicoMutation } from "../../graphql/mutations"
 
 export function Servicos() {
 
@@ -17,33 +16,27 @@ export function Servicos() {
         setServicos(apiData.data.listServicos.items);
     }
 
-    async function deleteServico(idTmp) {
-        const newServicosArray = servicos.filter(servico => servico.id !== idTmp)
-        setServicos(newServicosArray)
-        await API.graphql({ query: deleteServicoMutation, variables: { input: idTmp } })
-        
-    }
+    const status = ["", "andamento", "finalizado", "interrompido", "pagamento", "cancelado"];
 
     return (
         <>
             <HeaderEdicao />
             <div id="lista_servicos">
-
                 <div id="filtrador_servicos">
-                    <a href="#" class="button" onclick="filtra_servicos(0)" id="bttn_todos_servicos">Todos</a>
-                    <a href="#" class="button sv_finalizado" onclick="filtra_servicos(1)">Finalizados</a>
-                    <a href="#" class="button sv_andamento" onclick="filtra_servicos(2)">Em andamento</a>
-                    <a href="#" class="button sv_interrompido" onclick="filtra_servicos(3)">Interrompidos</a>
-                    <a href="#" class="button sv_pagamento" onclick="filtra_servicos(4)">Aguardando pagamento</a>
-                    <a href="#" class="button sv_cancelado" onclick="filtra_servicos(5)">Cancelados</a>
+                    <a href="#" className="button" onClick={() => filtra_servicos(0)} id="bttn_todos_servicos">Todos</a>
+                    <a href="#" className="button sv_finalizado" onClick={() => filtra_servicos(1)}>Finalizados</a>
+                    <a href="#" className="button sv_andamento" onClick={() => filtra_servicos(2)}>Em andamento</a>
+                    <a href="#" className="button sv_interrompido" onClick={() => filtra_servicos(3)}>Interrompidos</a>
+                    <a href="#" className="button sv_pagamento" onClick={() => filtra_servicos(4)}>Aguardando pagamento</a>
+                    <a href="#" className="button sv_cancelado" onClick={() => filtra_servicos(5)}>Cancelados</a>
                 </div>
 
-                <a href="./adicionar_servico/index.jsx">
+                <a href="./add_servico/index.jsx">
                     <div className="quadros_servicos bk_iniciar">
                         <span className="status_sv sv_iniciar"><i className="fa fa-plus-circle fa-4x" aria-hidden="true"></i></span>
 
                         <div className="infos_servicos">
-                            <br/>
+                            <br />
                             <h4>Inicie um novo serviço</h4>
                         </div>
                     </div>
@@ -51,20 +44,19 @@ export function Servicos() {
 
                 {
                     servicos.map(servico => (
-                        <div>
-                            <div key={servico.id || servico.name} className="quadros_servicos bk_cancelado">
-                                <span className="status_sv sv_cancelado"><i className="fa fa-ban fa-3x" aria-hidden="true"></i></span>
+                        <div className={"ftl flt_" + status[servico.status]} key={servico.id || servico.name} onClick={() => {
+                            document.location.href = "./editar_servico/index.jsx/" + servico.id;
+                        }}>
+                            <a href="#">
+                                <div className={"quadros_servicos bk_" + status[servico.status]}>
+                                    <span className={"status_sv sv_" + status[servico.status]}><i className="fa fa-ban fa-3x" aria-hidden="true"></i></span>
 
-                                <div className="infos_servicos">
-                                    <h1 className="placa">{servico.placa}</h1>
-                                    <h4>Status: Este serviço foi cancelado</h4>
+                                    <div className="infos_servicos">
+                                        <h1 className="placa">{servico.placa}</h1>
+                                        <h4>Status: Este serviço foi cancelado</h4>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            <button onClick={() => deleteServico(servico)}>Cancelar o servico</button>
-                            <button onClick={() => {
-                                document.location.href = "./editar_servico/index.jsx/" + servico.id;
-                            }}>Editar Servico</button>
+                            </a>
                         </div>
                     ))
                 }
@@ -72,4 +64,28 @@ export function Servicos() {
             <div id="transitador"></div>
         </>
     )
+
+    function filtra_servicos(alvo) {
+        let alvos = ["ftl", "flt_finalizado", "flt_andamento", "flt_interrompido", "flt_pagamento", "flt_cancelado"];
+
+        if (alvo !== 0)
+            document.getElementById("bttn_todos_servicos").style.opacity = "100";
+        else
+            document.getElementById("bttn_todos_servicos").style.opacity = "0";
+
+        alvos.forEach(alvo => {
+            let esconder = document.getElementsByClassName(alvo);
+
+            for (let i = 0; i < esconder.length; i++) {
+                esconder[i].style.display = "None";
+            }
+        });
+
+        let mostrar = document.getElementsByClassName(alvos[alvo]);
+
+        for (let i = 0; i < mostrar.length; i++) {
+            mostrar[i].style.display = "Block";
+        }
+    }
+
 }

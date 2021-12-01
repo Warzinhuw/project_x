@@ -12,7 +12,7 @@
 
     <title>Mexpress</title>
 </head>
-<body style="height: 100%; overflow-x: hidden;">
+<body style="height: 100%; overflow-x: hidden;" onload="relogio()">
     
     <div id="root"></div>
 </body>
@@ -69,6 +69,22 @@
 
         for(let i = 0; i < mostrar.length; i++){
             mostrar[i].style.display = "Block";
+        }
+    }
+
+    function relogio(){
+        let data = new Date();
+        const data_final = data.toLocaleDateString("pt-br", {timeZone: 'America/Sao_Paulo'});
+
+        document.getElementById("data_dia").innerHTML = data_final;
+        atualizaRelogio_user();
+
+        function atualizaRelogio_user(){
+            momentoAtual = new Date();
+
+            horaImprimivel = momentoAtual.toLocaleTimeString('pt-BR', {timeZone: 'America/Sao_Paulo'});
+            document.getElementById("relogio").innerHTML = horaImprimivel;
+            setTimeout(() => {atualizaRelogio_user(); }, 1000);
         }
     }
 </script>

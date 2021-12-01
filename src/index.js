@@ -12,9 +12,7 @@ AmplifyI18n.configure(locales)
 I18n.setLanguage("pt-BR")
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <App />,
   document.getElementById('root')
 );
 

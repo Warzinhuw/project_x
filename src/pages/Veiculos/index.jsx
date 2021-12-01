@@ -21,6 +21,7 @@ export function Veiculos() {
         const todoDelete = {
             id: veiculoTmp.id
         }
+        
         const newVeiculosArray = veiculos.filter(veiculo => veiculo.id !== veiculoTmp.id)
         setVeiculos(newVeiculosArray)
         await API.graphql({ query: deleteVeiculoMutation, variables: { input: todoDelete } })
@@ -40,15 +41,12 @@ export function Veiculos() {
                 <div>
                     {
                         veiculos.map(veiculo => (
-                            <div key={veiculo.id || veiculo.name}>
-                                <div className="quadros_veiculos" id="imagem_veiculos">
-                                    <span className="detalhe_quadro_veiculo_cima">{veiculo.modelo} <br />{veiculo.placa}</span>
-                                    <span className="detalhe_quadro_veiculo_baixo">Dono(a): Josival</span>  {/* Só deve aparecer se o usuário for adm */}
-                                    <button onClick={() => deleteVeiculo(veiculo)}>Deletar veiculo</button>
-                                    <button onClick={() => {
-                                        document.location.href = "./editar_veiculo/index.jsx/" + veiculo.id;
-                                    }}>Editar veiculo</button>
-                                </div>
+                            <div key={veiculo.id || veiculo.name} className="quadros_veiculos" id="imagem_veiculos" onClick={() => {
+                                document.location.href = "./editar_veiculo/index.jsx/" + veiculo.id;
+                            }}>
+                                <span className="detalhe_quadro_veiculo_cima">{veiculo.modelo} <br />{veiculo.placa}</span>
+                                <span className="detalhe_quadro_veiculo_baixo">Dono(a): Josival</span>  {/* Só deve aparecer se o usuário for adm */}
+                                <button onClick={() => deleteVeiculo(veiculo)}>Deletar veiculo</button>
                             </div>
                         ))
                     }
