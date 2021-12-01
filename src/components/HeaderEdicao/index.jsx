@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Auth } from 'aws-amplify';
 
 export function HeaderEdicao() {
     const navigate = useNavigate();
@@ -12,7 +13,7 @@ export function HeaderEdicao() {
 
                 <nav style={{ float: "right" }}>
                     <a href="#" onClick={() => navigate(-1)}>Voltar</a> |
-                    <a href="../../index.html">Deslogar</a>
+                    <button onClick={() => Auth.signOut()}>Deslogar</button>
                 </nav>
             </header>
         </>

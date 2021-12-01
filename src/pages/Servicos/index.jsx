@@ -17,6 +17,7 @@ export function Servicos() {
     }
 
     const status = ["", "andamento", "finalizado", "interrompido", "pagamento", "cancelado"];
+    const frase_status = ["", "O serviço está em andamento", "O serviço foi finalizado", "O serviço foi interrompido", "Aguardando pagamento", "Este serviço foi cancelado"];
 
     return (
         <>
@@ -33,7 +34,7 @@ export function Servicos() {
 
                 <a href="./add_servico/index.jsx">
                     <div className="quadros_servicos bk_iniciar">
-                        <span className="status_sv sv_iniciar"><i className="fa fa-plus-circle fa-4x" aria-hidden="true"></i></span>
+                        <span className="status_sv sv_iniciar"></span>
 
                         <div className="infos_servicos">
                             <br />
@@ -49,11 +50,11 @@ export function Servicos() {
                         }}>
                             <a href="#">
                                 <div className={"quadros_servicos bk_" + status[servico.status]}>
-                                    <span className={"status_sv sv_" + status[servico.status]}><i className="fa fa-ban fa-3x" aria-hidden="true"></i></span>
+                                    <span className={"status_sv sv_" + status[servico.status]}></span>
 
                                     <div className="infos_servicos">
-                                        <h1 className="placa">{servico.placa}</h1>
-                                        <h4>Status: Este serviço foi cancelado</h4>
+                                        <h3 className="placa">{servico.placa}</h3>
+                                        Status: {frase_status[servico.status]}
                                     </div>
                                 </div>
                             </a>
