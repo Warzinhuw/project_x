@@ -43,7 +43,7 @@ export default function Estoque(props){
                     }}>
                         <a href="#">
                             <div className="quadros_pecas bk_tools">
-                                <span className="peca_sv sv_peca"><h2 className="placa">{item_estoque.nome}</h2></span>
+                                <span className="peca_sv sv_peca"><h4 className="placa">{item_estoque.nome}</h4></span>
                             </div>
                         </a>
                     </div>

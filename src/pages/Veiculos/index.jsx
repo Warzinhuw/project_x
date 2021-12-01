@@ -46,7 +46,7 @@ export function Veiculos() {
                             }}>
                                 <span className="detalhe_quadro_veiculo_cima">{veiculo.modelo} <br />{veiculo.placa}</span>
                                 <span className="detalhe_quadro_veiculo_baixo">Dono(a): Josival</span>  {/* Só deve aparecer se o usuário for adm */}
-                                <button onClick={() => deleteVeiculo(veiculo)}>Deletar veiculo</button>
+                                <button className="bttn_delete_veiculo" onClick={() => deleteVeiculo(veiculo)}>Deletar veiculo</button>
                             </div>
                         ))
                     }

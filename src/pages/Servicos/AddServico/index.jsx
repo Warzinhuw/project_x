@@ -12,7 +12,8 @@ export function AddServico() {
 
     async function createServico() {
         if (!formData.placa || !formData.servico_realizado || !formData.data_inicio || !formData.custo) return
-        formData.status = parseInt(formData.status)
+        formData.status = 1;
+        
         await API.graphql({ query: createServicoMutation, variables: { input: formData } })
         setServicos([...servicos, formData])
         setFormData(initialFormState)
@@ -27,7 +28,7 @@ export function AddServico() {
 
                     <input onChange={e => setFormData({ ...formData, 'servico_realizado': e.target.value})} value={formData.servico} type="text" className="input_edit" placeholder="Serviço realizado" required />
 
-                    <input onChange={e => setFormData({ ...formData, 'data_inicio': e.target.value})} value={formData.inicio} type="text" className="input_edit" placeholder="Data de término" required />
+                    <input onChange={e => setFormData({ ...formData, 'data_inicio': e.target.value})} value={formData.inicio} type="text" className="input_edit" placeholder="Data de inicio" required />
 
                     <input onChange={e => setFormData({ ...formData, 'custo': e.target.value})} value={formData.custo} type="text" className="input_edit" placeholder="Custo do serviço" required />
                 </div>
@@ -35,10 +36,10 @@ export function AddServico() {
                 <div id="grupo_selects">
                     <h1>Status do serviço</h1>
                     <select onChange={e => setFormData({ ...formData, 'status': e.target.value})}>
-                        <option value="0">Em andamento</option>
-                        <option value="1">Concluído</option>
-                        <option value="2">Interromper</option>
-                        <option value="3">Aguardando pagamento</option>
+                        <option value="1">Em andamento</option>
+                        <option value="2">Concluído</option>
+                        <option value="3">Interromper</option>
+                        <option value="4">Aguardando pagamento</option>
                     </select>
                 </div>
 

@@ -1,14 +1,13 @@
 import './css/style.css'
 import './css/animations.css'
 import './css/internos.css'
-import '@aws-amplify/ui/dist/style.css';
+// import '@aws-amplify/ui/dist/style.css';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Usuario } from './pages/Usuario';
 import { Veiculos } from './pages/Veiculos';
-import { Servicos } from './pages/Servicos';
-import Clientes from './pages/Clientes';
+import { Servicos } from './pages/Servicos'
 import Estoque from './pages/Estoque';
 import Erro from './pages/Erro';
 
@@ -23,6 +22,7 @@ import { withAuthenticator } from '@aws-amplify/ui-react';
 
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
+
 Amplify.configure(awsconfig);
 
 function App() {
@@ -32,7 +32,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Usuario />} />
           <Route path="veiculos/*" element={<Veiculos />} />
-          <Route path="clientes/*" element={<Clientes />} />
           <Route path="estoque/*" element={<Estoque />} />
           <Route path="servicos/*" element={<Servicos />} />
           <Route path="erro/*" element={<Erro />} />
