@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { HeaderEdicao } from "../../../components/HeaderEdicao"
 import { API } from 'aws-amplify';
 import { createEstoque as createEstoqueMutation } from "../../../graphql/mutations";
@@ -15,6 +15,8 @@ export function AddEstoque() {
         await API.graphql({ query: createEstoqueMutation, variables: { input: formData } })
         setEstoque([...servicos, formData])
         setFormData(initialFormState)
+
+        alert("A peça foi adicionada!");
     }
 
     return (
@@ -22,9 +24,9 @@ export function AddEstoque() {
             <HeaderEdicao />
             <div id="quadro_edicao_dados">
                 <div id="grupo_inputs">
-                    <input onChange={e => setFormData({ ...formData, 'nome': e.target.value })} value={formData.nome} type="text" class="input_edit" placeholder="Nome" required />
+                    <input onChange={e => setFormData({ ...formData, 'nome': e.target.value })} value={formData.nome} type="text" className="input_edit" placeholder="Nome" required />
 
-                    <input onChange={e => setFormData({ ...formData, 'quantidade': e.target.value })} value={formData.quantidade} type="text" class="input_edit" placeholder="Quantidade" required />
+                    <input onChange={e => setFormData({ ...formData, 'quantidade': e.target.value })} value={formData.quantidade} type="text" className="input_edit" placeholder="Quantidade" required />
                 </div>
 
                 <button id="button_add" onClick={createEstoque}>Adicionar ao estoque</button>
